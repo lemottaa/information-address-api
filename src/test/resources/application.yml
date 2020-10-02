@@ -1,0 +1,44 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    contextPath: /information-address
+
+spring:
+  profiles:
+    active: test
+  main:
+    banner-mode: "off"
+  rabbitmq:    
+    request:
+      exchange: 
+        name: topic.loads
+        
+logging:
+  level:
+    org:
+      springframework: INFO
+      hibernate:
+        SQL: off
+        engine:
+          transaction: debug
+    main: OFF
+    root: OFF
+
+security:
+  jwt:
+      uri: "/**"
+      prefix: Bearer
+      secret: token
+      
+bztoken: token      
+
+timezone: America/Sao_Paulo
+    
+info:
+  app:
+    environment: test
+  build:
+    artifact: '@project.artifactId@'
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
