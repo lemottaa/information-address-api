@@ -3,6 +3,7 @@ package com.luizalabs.information.address.api.factory;
 import java.util.List;
 
 import com.luizalabs.information.address.api.dto.error.ErrorDTO;
+import com.luizalabs.information.address.api.dto.response.MetaDTO;
 import com.luizalabs.information.address.api.dto.response.ResponseBodyDTO;
 
 
@@ -26,6 +27,7 @@ public class ResponseBodyFactory {
 
 	public static <T> ResponseBodyDTO<T> of(final T t) {
 		final ResponseBodyDTO<T> response = new ResponseBodyDTO<>();
+		response.setMeta(MetaDTO.builder().build());
 		response.getMeta().setRecordCount(1);
 		response.addRecord(t);
 		return response;

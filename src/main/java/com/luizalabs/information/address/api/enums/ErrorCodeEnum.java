@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCodeEnum {
 
 	UNAUTHORIZED(30001L, HttpStatus.UNAUTHORIZED),
-	INVALID_PARAMETER(30021L, HttpStatus.BAD_REQUEST);
+	INVALID_PARAMETER(30021L, HttpStatus.BAD_REQUEST),
+	NOT_PRESENT_PARAMETER(30022L, HttpStatus.BAD_REQUEST),
+	NOT_FOUND(30023L, HttpStatus.NOT_FOUND);
 	
 	private Long code;
 	
