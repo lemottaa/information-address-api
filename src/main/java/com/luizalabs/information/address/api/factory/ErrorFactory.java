@@ -15,7 +15,7 @@ public class ErrorFactory {
 	
 	public static ErrorDTO invalidParameter(final String name) {
 		return ErrorDTO.builder()
-				.developerMessage("The %s parameter is invalid")
+				.developerMessage(String.format("The %s parameter is invalid", name))
 				.userMessage(String.format("There is something wrong - The %s is invalid. "
 						+ "Change it and try again", name))
 				.errorCode(ErrorCodeEnum.INVALID_PARAMETER.getCode())

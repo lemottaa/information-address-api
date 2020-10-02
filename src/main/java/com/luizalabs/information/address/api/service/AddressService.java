@@ -5,6 +5,6 @@ import com.luizalabs.information.address.api.dto.response.ResponseBodyDTO;
 
 public interface AddressService {
 	
-	ResponseBodyDTO<AddressResponseDTO> getAdressByZipCode(Long zipCode);
+	ResponseBodyDTO<AddressResponseDTO> getAdressByZipCode(String zipCode);
 
 }
