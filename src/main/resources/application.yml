@@ -20,8 +20,6 @@ security:
       prefix: ${JWT_PREFIX:Bearer}
       secret: ${JWT_SECRET:cb492761801832cd2854e03a86e6776f}
 
-bztoken: ${BZTOKEN}
-
 feign:
   httpclient:
     enabled: false
@@ -36,8 +34,7 @@ feign:
         
 viacep:
   api:
-    url: ${CEP_API_URL}
-    token: ${CEP_API_TOKEN}
+    url: ${CEP_API_URL:https://viacep.com.br}
   
 info:
   app:

@@ -31,10 +31,11 @@ public class ErrorFactory {
 				.build();
 	}
 	
-	public static ErrorDTO notFound(final String name) {
+	public static ErrorDTO notFound(final String name, final String value) {
 		return ErrorDTO.builder()
-				.developerMessage(String.format(" %s not found", name))
-				.userMessage(String.format("You attempted to get a %s, but did not find any", name))
+				.developerMessage(String.format("%s %s not found", name, value))
+				.userMessage(String.format("You attempted to get a %s %s, but did not find any", name,
+						value))
 				.errorCode(ErrorCodeEnum.NOT_FOUND.getCode())
 				.build();
 	}

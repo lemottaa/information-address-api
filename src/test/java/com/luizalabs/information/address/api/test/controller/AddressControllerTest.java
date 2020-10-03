@@ -76,14 +76,14 @@ public class AddressControllerTest {
     public void shouldReturnNotFound() throws Exception {
 		Mockito.when(this.addressService.getAdressByZipCode(Mockito.anyString()))
 				.thenReturn(ResponseBodyFactory.with(AddressResponseDTO.builder().build(),
-						ErrorFactory.notFound("zipcode")));
+						ErrorFactory.notFound("zipcode", "00000001")));
     	
     	mockMvc.perform(get(GET_ADDRESS_BY_ZIPCODE.concat("?zipcode=00000001"))
     			.contentType(MediaType.APPLICATION_JSON))
     	.andDo(print())
     	.andExpect(status().is4xxClientError())
-    	.andExpect(content().string(containsString("zipcode not found")))
-				.andExpect(content().string(containsString("You attempted to get a zipcode,"
+    	.andExpect(content().string(containsString("zipcode 00000001 not found")))
+				.andExpect(content().string(containsString("You attempted to get a zipcode 00000001,"
 						+ " but did not find any")))
     	.andExpect(content().string(containsString("30023")));
     }

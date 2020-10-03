@@ -43,7 +43,7 @@ public class ViaCepApiClientTest {
 	void shouldReturnSuccessViaCepDTO() throws IOException {		
 		final ViaCepDTO response = this.viaCepClient.getViaCepAddress("14077080");
 		
-		assertTrue(response.getZipcode().equalsIgnoreCase("14077-080"));
+		assertTrue(response.getZipCode().equalsIgnoreCase("14077-080"));
 		assertTrue(response.getStreet().equalsIgnoreCase("Rua Altinópolis"));
 		assertTrue(response.getComplement().equalsIgnoreCase(""));
 		assertTrue(response.getDistrict().equalsIgnoreCase("Quintino Facci I"));

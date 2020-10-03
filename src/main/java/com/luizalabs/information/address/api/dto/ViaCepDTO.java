@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class ViaCepDTO {
 	
 	@JsonProperty("cep")
-	private String zipcode;
+	private String zipCode;
 	
 	@JsonProperty("logradouro")
 	private String street;

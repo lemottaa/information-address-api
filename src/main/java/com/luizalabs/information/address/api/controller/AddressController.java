@@ -1,5 +1,7 @@
 package com.luizalabs.information.address.api.controller;
 
+import java.io.IOException;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -41,7 +43,7 @@ public class AddressController extends BaseController {
 	@GetMapping
 	public ResponseEntity<ResponseBodyDTO<AddressResponseDTO>> getAddressByZipCode(@Valid 
 			@NotEmpty @RequestParam(value = "zipcode", required = true) 
-			@Size(min = 0, max = 8) final String zipCode) {
+			@Size(min = 0, max = 8) final String zipCode) throws IOException {
 						
 		if (Boolean.FALSE.equals(this.zipCodeValidator.isValid(zipCode))) {
 			return buildResponse(ResponseBodyFactory.with(AddressResponseDTO.builder().build(),
