@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+	"urlPathPattern": "/ws/22222221/json"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "erro": true },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

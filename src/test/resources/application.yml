@@ -26,9 +26,14 @@ logging:
 
 security:
   jwt:
-      uri: "/**"
-      prefix: Bearer
-      secret: token
+    uri: "/**"
+    prefix: Bearer
+    secret: token
+      
+viacep:
+  api:
+    token: mock
+    url: http://localhost:${wiremock.server.port:5000}
       
 bztoken: token      
 

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+	"urlPathPattern": "/ws/345567/json"
+  },
+  "response": {
+    "status": 400,
+    "body": "The body doesn't matter'",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -17,7 +17,7 @@ public class ViaCepDTO {
 	private String zipcode;
 	
 	@JsonProperty("logradouro")
-	private String adddress;
+	private String street;
 	
 	@JsonProperty("complemento")
 	private String complement;
@@ -37,7 +37,7 @@ public class ViaCepDTO {
 	
 	private Integer ddd;
 	
-	private String siaf;
+	private String siafi;
 	
 	@JsonProperty("erro")
 	private Boolean error;

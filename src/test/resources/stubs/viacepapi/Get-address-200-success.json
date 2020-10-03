@@ -1,0 +1,14 @@
+{
+  "priority":6,
+  "request": {
+    "method": "GET",
+	"urlPathPattern": "/ws/([0-9]+)/json"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "cep": "14077-080", "logradouro": "Rua Altinópolis", "complemento": "", "bairro": "Quintino Facci I", "localidade": "Ribeirão Preto", "uf": "SP", "ibge": "3543402", "gia": "5824", "ddd": "16", "siafi": "6969" },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

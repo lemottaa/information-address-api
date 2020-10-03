@@ -32,3 +32,5 @@ mvnw.cmd
 
 ### VS Code ###
 .vscode/
+
+*.log

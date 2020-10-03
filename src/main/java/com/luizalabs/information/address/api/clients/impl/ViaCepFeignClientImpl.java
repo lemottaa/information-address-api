@@ -10,11 +10,14 @@ import com.luizalabs.information.address.api.clients.ViaCepApiFeign;
 import com.luizalabs.information.address.api.clients.ViaCepFeignClient;
 import com.luizalabs.information.address.api.dto.ViaCepDTO;
 import com.luizalabs.information.address.api.exception.InformationAddressFailedException;
+import com.luizalabs.information.address.api.exception.SerealizationException;
 import com.luizalabs.information.address.api.utils.FeignUtils;
 
 import feign.Response;
+import lombok.AllArgsConstructor;
 
 @Component
+@AllArgsConstructor
 public class ViaCepFeignClientImpl implements ViaCepFeignClient {
 
 	private ViaCepApiFeign viaCepApi;
@@ -25,13 +28,14 @@ public class ViaCepFeignClientImpl implements ViaCepFeignClient {
 		final Response response = this.viaCepApi.getFullAddressByZipCode(zipCode);
 
 		if (Boolean.FALSE.equals(this.isSucessResponse(response)))
-			return null;
+			throw new InformationAddressFailedException("Unexpected error to get information address");
 		
 		final Optional<ViaCepDTO> optionalBody = FeignUtils.getReturnedBody
 				(response.body().asInputStream(), ViaCepDTO.class);
 		
 		if (optionalBody.isEmpty())
-			throw new InformationAddressFailedException("Unexpected error to get information address");
+			throw new SerealizationException(String.format("Unexpected error to get data about"
+					+ " zipcode - %s", zipCode));
 
 		return optionalBody.get();
 	}
