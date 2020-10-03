@@ -21,6 +21,23 @@ security:
       secret: ${JWT_SECRET:cb492761801832cd2854e03a86e6776f}
 
 bztoken: ${BZTOKEN}
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true 
+  client:
+    config:
+      default:
+        connectTimeout: ${API_TIMEOUT:10000}
+        readTimeout: ${API_TIMEOUT:10000}
+        loggerLevel: ${FEIGN_LOGGER_LEVEL:full}
+        
+viacep:
+  api:
+    url: ${CEP_API_URL}
+    token: ${CEP_API_TOKEN}
   
 info:
   app:
