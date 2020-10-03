@@ -1,9 +1,11 @@
 package com.luizalabs.information.address.api.clients.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import feign.RequestInterceptor;
 
+@Profile("!test")
 public class ViaCepApiConfig {
 
 	public static final String NAME = "viacep";

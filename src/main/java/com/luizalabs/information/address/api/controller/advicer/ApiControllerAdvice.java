@@ -13,7 +13,7 @@ import com.luizalabs.information.address.api.factory.ResponseBodyFactory;
 public class ApiControllerAdvice {
 
 	@ExceptionHandler({MissingServletRequestParameterException.class})
-	public ResponseEntity invalidParameterController(final MissingServletRequestParameterException e) {
+	public ResponseEntity<?> invalidParameterController(final MissingServletRequestParameterException e) {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 				.body(ResponseBodyFactory.with(ErrorFactory.notPresentParameter(e.getParameterName())));
 	}

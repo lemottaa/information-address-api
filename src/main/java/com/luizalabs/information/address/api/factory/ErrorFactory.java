@@ -3,7 +3,11 @@ package com.luizalabs.information.address.api.factory;
 import com.luizalabs.information.address.api.dto.error.ErrorDTO;
 import com.luizalabs.information.address.api.enums.ErrorCodeEnum;
 
-public class ErrorFactory {
+public final class ErrorFactory {
+	
+	private ErrorFactory() {
+		
+	}
 
 	public static ErrorDTO getUnAuthorized() {
 		return ErrorDTO.builder()
