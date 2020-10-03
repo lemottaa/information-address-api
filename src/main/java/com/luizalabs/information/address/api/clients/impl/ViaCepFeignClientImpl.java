@@ -26,7 +26,10 @@ public class ViaCepFeignClientImpl implements ViaCepFeignClient {
 	public ViaCepDTO getViaCepAddress(final String zipCode) throws IOException {
 
 		final Response response = this.viaCepApi.getFullAddressByZipCode(zipCode);
+		return getViaCepResponse(zipCode, response);
+	}
 
+	private ViaCepDTO getViaCepResponse(final String zipCode, final Response response) throws IOException {
 		if (Boolean.FALSE.equals(this.isSucessResponse(response)))
 			throw new InformationAddressFailedException("Unexpected error to get information address");
 		
