@@ -3,6 +3,7 @@ package com.luizalabs.information.address.api.clients.impl;
 import java.io.IOException;
 import java.util.Optional;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -25,8 +26,13 @@ public class ViaCepFeignClientImpl implements ViaCepFeignClient {
 	@Override
 	public ViaCepDTO getViaCepAddress(final String zipCode) throws IOException {
 
-		final Response response = this.viaCepApi.getFullAddressByZipCode(zipCode);
+		final Response response = this.getFullAddress(zipCode);
 		return getViaCepResponse(zipCode, response);
+	}
+
+	@Cacheable
+	private Response getFullAddress(final String zipCode) {
+		return this.viaCepApi.getFullAddressByZipCode(zipCode);
 	}
 
 	private ViaCepDTO getViaCepResponse(final String zipCode, final Response response) throws IOException {

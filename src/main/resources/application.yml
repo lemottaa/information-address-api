@@ -35,6 +35,10 @@ feign:
 viacep:
   api:
     url: ${CEP_API_URL:https://viacep.com.br}
+    
+cache:
+  expireAfterWrite: ${CACHE_TIME_EXPIRE_IN_MINUTES:1}
+
   
 info:
   app:
