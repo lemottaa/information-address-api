@@ -34,6 +34,9 @@ viacep:
   api:
     token: mock
     url: http://localhost:${wiremock.server.port:5000}
+    
+cache:
+  expireAfterWrite: 1
       
 bztoken: token      
 
