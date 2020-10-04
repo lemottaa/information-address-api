@@ -37,11 +37,7 @@ public class ResponseBodyDTO<T> implements Serializable {
 		errors.add(error);
 		
 	}
-	public boolean isSucess() {
-		if ((errors == null) || errors.isEmpty()) {
-			return true;
-		}
-
-		return false;
+	public boolean isSucess() {		
+		return ((errors == null) || errors.isEmpty());
 	}
 }

@@ -10,7 +10,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 import com.google.gson.Gson;
-import com.luizalabs.information.address.api.factory.ErrorFactory;
+import com.luizalabs.information.address.api.dto.error.ErrorDTO;
+import com.luizalabs.information.address.api.enums.ErrorCodeEnum;
 import com.luizalabs.information.address.api.factory.ResponseBodyFactory;
 
 import lombok.Generated;
@@ -24,6 +25,10 @@ public class DefaultAuthenticationEntryPoint implements AuthenticationEntryPoint
         response.setStatus(401);
         response.setContentType("application/json");
 		response.getWriter().append(new Gson()
-				.toJson(ResponseBodyFactory.with(ErrorFactory.getUnAuthorized())));
+				.toJson(ResponseBodyFactory.with(ErrorDTO.builder()
+						.developerMessage("Unauthorized - make sure the header parameter "
+								+ "Authorization is valid")
+						.userMessage("You are not authorized to perform this operation")
+						.errorCode(ErrorCodeEnum.UNAUTHORIZED.getCode()).build())));
     }
 }

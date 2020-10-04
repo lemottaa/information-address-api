@@ -8,14 +8,6 @@ public final class ErrorFactory {
 	private ErrorFactory() {
 		
 	}
-
-	public static ErrorDTO getUnAuthorized() {
-		return ErrorDTO.builder()
-				.developerMessage("Unauthorized - make sure the header parameter Authorization "
-						+ "is valid")
-				.userMessage("You are not authorized to perform this operation")
-				.errorCode(ErrorCodeEnum.UNAUTHORIZED.getCode()).build();
-	}	
 	
 	public static ErrorDTO invalidParameter(final String name) {
 		return ErrorDTO.builder()

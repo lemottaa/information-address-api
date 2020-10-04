@@ -1,1 +1,8 @@
-
+version: '2.2'
+volumes:
+  data:
+services:
+  sonarqube:
+    image: sonarqube:7.5-community
+    ports:
+    - "9000:9000"

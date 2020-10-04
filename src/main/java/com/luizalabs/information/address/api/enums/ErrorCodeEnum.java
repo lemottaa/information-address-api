@@ -27,7 +27,7 @@ public enum ErrorCodeEnum {
 	}
 	
 	public static HttpStatus findHttpStatus(final Long errorCode) {
-		
+				
 		for (final ErrorCodeEnum error : ErrorCodeEnum.values()) {
 			if (error.getCode().equals(errorCode)) {
 				return error.getHttpCode();

@@ -73,6 +73,17 @@ public class AddressControllerTest {
     }
     
     @Test
+    public void shouldReturnBadRequestBecauseZipCodeHasLetters() throws Exception {
+    	mockMvc.perform(get(GET_ADDRESS_BY_ZIPCODE.concat("?zipcode=12345abc"))
+    			.contentType(MediaType.APPLICATION_JSON))
+    	.andExpect(status().is4xxClientError())
+    	.andExpect(content().string(containsString("The zipcode parameter is invalid")))
+				.andExpect(content().string(containsString("There is something wrong - "
+						+ "The zipcode is invalid. Change it and try again")))
+    	.andExpect(content().string(containsString("30021")));
+    }
+    
+    @Test
     public void shouldReturnNotFound() throws Exception {
 		Mockito.when(this.addressService.getAdressByZipCode(Mockito.anyString()))
 				.thenReturn(ResponseBodyFactory.with(AddressResponseDTO.builder().build(),
