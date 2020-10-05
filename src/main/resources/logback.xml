@@ -15,12 +15,14 @@
 		<remoteHost>localhost</remoteHost>
 		<port>8080</port>
 		<encoder class="net.logstash.logback.encoder.LogstashEncoder">
+		  <includeMdcKeyName>http.latency</includeMdcKeyName>
+  		  <includeMdcKeyName>http.url</includeMdcKeyName>
 		</encoder>
 	</appender>
 	
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
       <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">         
-         <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} %-4level [,%X{traceId}, %X{spanId},%X{spanExportable}] [%-15t] %logger{36} : %msg %X{http.method} %X{http.path} %X{http.status} %n</Pattern>
+         <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} %-4level [,%X{traceId}, %X{spanId},%X{spanExportable}] [%-15t] %logger{36} : %msg %X{http.method} %X{http.path} %X{http.status} %X{http.latency} %X{http.url} %n</Pattern>
       </encoder>
     </appender>
     

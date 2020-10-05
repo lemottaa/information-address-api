@@ -30,7 +30,7 @@ public class ViaCepFeignClientImpl implements ViaCepFeignClient {
 		return getViaCepResponse(zipCode, response);
 	}
 
-	@Cacheable
+	@Cacheable(value = "getFullAddress")
 	private Response getFullAddress(final String zipCode) {
 		return this.viaCepApi.getFullAddressByZipCode(zipCode);
 	}

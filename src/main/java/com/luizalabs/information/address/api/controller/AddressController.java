@@ -1,12 +1,14 @@
 package com.luizalabs.information.address.api.controller;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.luizalabs.information.address.api.config.AddressControllerConfig;
 import com.luizalabs.information.address.api.controller.base.BaseController;
 import com.luizalabs.information.address.api.dto.response.AddressResponseDTO;
 import com.luizalabs.information.address.api.dto.response.ResponseBodyDTO;
@@ -27,7 +30,7 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ApiResponse;
 
 @RestController
-@RequestMapping("/api/address")
+@RequestMapping(AddressControllerConfig.REQUEST_MAPPING_BASE)
 public class AddressController extends BaseController {
 
 	@Autowired
@@ -44,12 +47,15 @@ public class AddressController extends BaseController {
 	public ResponseEntity<ResponseBodyDTO<AddressResponseDTO>> getAddressByZipCode(@Valid 
 			@NotEmpty @RequestParam(value = "zipcode", required = true) 
 			@Size(min = 0, max = 8) final String zipCode) throws IOException {
-						
+		final Date initialTIme = new Date();
+				
 		if (Boolean.FALSE.equals(this.zipCodeValidator.isValid(zipCode))) {
 			return buildResponse(ResponseBodyFactory.with(AddressResponseDTO.builder().build(),
-					ErrorFactory.invalidParameter("zipcode")), HttpStatus.BAD_REQUEST);
+					ErrorFactory.invalidParameter("zipcode")), HttpStatus.BAD_REQUEST,
+					AddressControllerConfig.REQUEST_MAPPING_BASE, HttpMethod.GET, initialTIme);
 		}
 		
-		return buildResponse(this.addressService.getAdressByZipCode(zipCode), HttpStatus.OK);
+		return buildResponse(this.addressService.getAdressByZipCode(zipCode), HttpStatus.OK,
+				AddressControllerConfig.REQUEST_MAPPING_BASE, HttpMethod.GET, initialTIme);
 	}
 }
