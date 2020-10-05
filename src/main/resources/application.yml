@@ -1,11 +1,17 @@
 timezone: ${TIMEZONE:America/Sao_Paulo}
 
 server:
-  port: ${PORT:9002}
+  port: 9002
   servlet:
     contextPath: /information-address
     
 spring:
+  boot:
+    admin:
+      context-path: /admin
+      client:
+        url:
+          - http://localhost:9002/information-address/admin
   main:
     banner-mode: "off"
   profiles:
@@ -56,6 +62,10 @@ management:
   endpoint:
     health:
       show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 
 

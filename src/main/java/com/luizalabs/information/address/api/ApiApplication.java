@@ -9,6 +9,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.core.env.Environment;
 import org.springframework.retry.annotation.EnableRetry;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
+
+@EnableAdminServer
 @Generated
 @EnableRetry
 @EnableFeignClients

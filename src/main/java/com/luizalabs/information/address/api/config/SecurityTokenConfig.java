@@ -30,7 +30,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(new DefaultAuthenticationEntryPoint()).and()
                 .authorizeRequests().antMatchers("/actuator/health", "/actuator/info",
-                "/swagger-resources/**", "/v2/api-docs/**", "/csrf/**",
+                "/swagger-resources/**", "/admin/**", "/v2/api-docs/**", "/csrf/**",
                 "/webjars/**", "/swagger-ui.html")
                 .permitAll().anyRequest().authenticated();
         http.addFilter(new JwtTokenAuthenticationFilter(authenticationManager(), jwtConfig));
