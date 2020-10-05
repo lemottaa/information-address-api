@@ -4,49 +4,49 @@
 ## Conteúdo
 
 * [Sobre o projeto](#sobre-o-projeto)
-  * [O que foi utilizado](#o-que-foi-utilizado)
+ * [O que foi utilizado](#o-que-foi-utilizado)
 * [Começando com o projeto](#começando-com-o-projeto)
-  * [Pré Requisitos](#pre-requisitos)
-  * [Variaveis de ambiente](#variaveis-de-ambiente)
-  * [Instalação](#instalação)
-  * [Cobertura com SonarQube](#cobertura)
-  * [Serviços disponiveis](#serviços)
+ * [Pré Requisitos](#pre-requisitos)
+ * [Variaveis de ambiente](#variaveis-de-ambiente)
+ * [Instalação](#instalação)
+ * [Cobertura com SonarQube](#cobertura)
+ * [Serviços disponíveis](#serviços)
 * [Documentação](#documentação)
 * [Contato](#contato)
-
+ 
 <!-- ABOUT THE PROJECT -->
 ## Sobre o projeto
-
+ 
 O projeto information-address-api é responsável por retornar o endereço brasileiro de qualquer CEP válido informado.
-
-A linguagém escolhida foi o Java, já que se consolidou por muitos anos no mercado de linguagem de programação, é de código aberto e tem uma comunidade grande e ativa. Além disso, tem frameworks que são facilitadores no processo de criação de apis, Spring e Spring Boot, como neste projeto.
+ 
+A linguagem escolhida foi o Java, já que se consolidou por muitos anos no mercado de linguagem de programação, é de código aberto e tem uma comunidade grande e ativa. Além disso, tem frameworks que são facilitadores no processo de criação de apis, Spring e Spring Boot, como neste projeto.
 
 ### O que foi utilizado
 
-[Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Linguagem de programação utilizida como citado anteriormente
-
+[Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Linguagem de programação utilizada como citado anteriormente
+ 
 [Maven](https://maven.apache.org/) - Ferramenta de automação de compilação
-
+ 
 [Spring Boot](https://spring.io/projects/spring-boot) - Framework que visa facilitar o processo de configuração e publicação de aplicações que utilizem o ecossistema Spring
-
+ 
 [JWT](https://jwt.io/) - Permite decodificar, verificar e gerar tokens
-
+ 
 [JUnit5](https://junit.org/junit5/docs/current/user-guide/) - Possibilita uma base atualizada para testes do lado do desenvolvedor
-
+ 
 [JaCoCo](https://github.com/jacoco/jacoco) - Plugin utilizado para coverage da aplicação.
-
+ 
 [CircleCI 2](https://circleci.com/) - Utilizado no CI (Continuos Integration) da aplicação.
-
+ 
 [Swagger](https://swagger.io/tools/swagger-editor/) - Fornece interface gráfica para os recursos da api, bem como uma documentação simplificada e objetiva.
-
-[Sleuth](https://spring.io/projects/spring-cloud-sleuth) - Possibilita o acompanhamento de trace de logs distribuidos
-
+ 
+[Sleuth](https://spring.io/projects/spring-cloud-sleuth) - Possibilita o acompanhamento de trace de logs distribuídos
+ 
 [LogStash](https://www.elastic.co/pt/logstash) - Pipeline de processamento de dados (logs) e integração com ferramentas de processamento de dados
-
-[ElasticSearch](https://www.elastic.co/pt/what-is/elasticsearch) - Mecanismo que possibilita e facilita a analise de dados textuais
-
+ 
+[ElasticSearch](https://www.elastic.co/pt/what-is/elasticsearch) - Mecanismo que possibilita e facilita a análise de dados textuais
+ 
 [Kibana](https://www.elastic.co/pt/kibana) - Aplicação que fornece recursos de busca e visualização de dados indexados no Elasticsearch.
-
+ 
 [Sonar](https://docs.sonarqube.org/latest/) - Ferramenta que visa garantir a qualidade do código fonte em desenvolvimento.
 
 ## Começando com o projeto
@@ -108,20 +108,20 @@ sudo docker-compose up -d
 ***
 ### Cobertura com SonarQube
 
-1) Com o dokcer-compose em execução, estará disponivel o [Dashboard do sonar](http://localhost:9000). Desta forma, basta realizar o login com as credenciais: login - admin | senha - admin;
-2) Agora sefaz necessário criar a aplicação que será analisada pelo sonar. O nome e o token da aplicação serão solicitados, e minha sugestão é que use o mesmo para os dois;
+1) Com o dokcer-compose em execução, estará disponível o [Dashboard do sonar](http://localhost:9000). Desta forma, basta realizar o login com as credenciais: login - admin | senha - admin;
+2) Agora se faz necessário criar a aplicação que será analisada pelo sonar. O nome e o token da aplicação serão solicitados, e minha sugestão é que use o mesmo para os dois;
 3) Após continuar, como o projeto é Java rodando com Maven, escolha as duas opções sucessivamente;
 4) Feito o passo anterior, surgirá um comando maven (vide abaixo) na tela. Este deve ser copiado;
 ```sh
 ./mvnw sonar:sonar \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=9289f191275ad5aa535345b8poj28d133c7784h
+ -Dsonar.host.url=http://localhost:9000 \
+ -Dsonar.login=9289f191275ad5aa535345b8poj28d133c7784h
 ```
-5) Eexecute a compilação novamente do projeto através do comando:
+5) Execute a compilação novamente do projeto através do comando:
 ```sh
 ./mvnw clean package
 ```
-6) Está pronto. O projeto estará disponivel no o [Dashboard do sonar](http://localhost:9000).
+6) Está pronto. O projeto estará disponível no [Dashboard do sonar](http://localhost:9000).
 
 ### Serviços Disponiveis
 
