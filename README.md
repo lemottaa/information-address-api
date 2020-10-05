@@ -142,6 +142,10 @@ https://drive.google.com/file/d/1PBNLdJWpK69F3LCx0DkfMINDip-htZxO/view?usp=shari
 
 Documentação de endpoints: http://localhost:9002/information-address/swagger-ui.html#/
 
+## Protocolo HTTP
+
+Breve explicação sobre o protocolo HTTP: https://drive.google.com/file/d/1PWOMgq8YPLdI9uxaJNp6UHlwEjttSHCd/view?usp=sharing
+
 ## Contato
 [![Linkedin Badge](https://img.shields.io/badge/-Leonardo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lmotta18/)](https://www.linkedin.com/in/lmotta18/)
 ![Skype Badge](https://img.shields.io/badge/-motta1840-lightblue?style=flat-square&logo=Skype&logoColor=white)
