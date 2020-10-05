@@ -6,7 +6,7 @@
 
 	<groupId>com.luizalabs</groupId>
 	<artifactId>information-address-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<name>information-address-api</name>
 	<description>API RestFull to get information about brazilian addresses (CEP)</description>
 
@@ -177,6 +177,12 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <dependency> 
+		    <groupId>net.logstash.logback</groupId> 
+		    <artifactId>logstash-logback-encoder</artifactId> 
+		    <version>4.11</version> 
+		</dependency>
 		
     	
 	</dependencies>
