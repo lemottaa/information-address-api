@@ -130,8 +130,8 @@ sudo docker-compose up -d
 |Zipkin                   | 9411                   |
 |ElasticSearch            | 9200, 9300             |
 |Information Address API  | 9002                   |
-|SonarQube                | 9000                   |
 |Spring Boot Admin Server | 9002                   |
+|SonarQube                | 9000                   |
 |LogStash                 | 5000, 5044, 8080, 9600 | 
 |Kibana                   | 5601                   |
 
