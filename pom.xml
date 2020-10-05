@@ -6,7 +6,7 @@
 
 	<groupId>com.luizalabs</groupId>
 	<artifactId>information-address-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<name>information-address-api</name>
 	<description>API RestFull to get information about brazilian addresses (CEP)</description>
 
@@ -22,6 +22,7 @@
 		<checkstyle-maven-plugin.version>3.1.1</checkstyle-maven-plugin.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		<sonar.coverage.exclusions>
+			**/ApiApplication.*,
 			**/dto/**,
 			**/config/**,
 			**/filter/*,
@@ -177,7 +178,17 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <dependency> 
+		    <groupId>net.logstash.logback</groupId> 
+		    <artifactId>logstash-logback-encoder</artifactId> 
+		    <version>4.11</version> 
+		</dependency>
 		
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>		
     	
 	</dependencies>
 
@@ -193,6 +204,7 @@
 				<version>0.8.5</version>
 				<configuration>
 					<excludes>
+						<exclude>**/ApiApplication.*</exclude>
 						<exclude>**/dto/**</exclude>
 						<exclude>**/config/**</exclude>
 						<exclude>**/filter/*</exclude>
